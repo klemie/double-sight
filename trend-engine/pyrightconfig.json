@@ -1,0 +1,19 @@
+{
+  "include": ["src", "tests"],
+  "exclude": ["**/__pycache__"],
+  "pythonVersion": "3.11",
+  "pythonPlatform": "All",
+  "typeCheckingMode": "strict",
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": false,
+  "reportUnusedImport": true,
+  "reportUnusedVariable": true,
+  "reportUnusedFunction": true,
+  "reportOptionalMemberAccess": true,
+  "reportOptionalSubscript": true,
+  "reportPrivateUsage": true,
+  "reportUnnecessaryTypeIgnoreComment": true,
+  "venvPath": ".",
+  "venv": ".venv"
+}
+

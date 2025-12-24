@@ -1,0 +1,64 @@
+version: 2
+updates:
+  # Client - npm/pnpm dependencies
+  - package-ecosystem: "npm"
+    directory: "/client"
+    schedule:
+      interval: "weekly"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "@types/*"
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "prettier"
+          - "vitest"
+          - "@vitest/*"
+          - "@testing-library/*"
+        update-types:
+          - "minor"
+          - "patch"
+      production-dependencies:
+        patterns:
+          - "react*"
+          - "mobx*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Server - pip dependencies
+  - package-ecosystem: "pip"
+    directory: "/server"
+    schedule:
+      interval: "weekly"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "pytest*"
+          - "ruff"
+          - "pyright"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Trend Engine - pip dependencies
+  - package-ecosystem: "pip"
+    directory: "/trend-engine"
+    schedule:
+      interval: "weekly"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "pytest*"
+          - "ruff"
+          - "pyright"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
