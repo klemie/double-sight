@@ -1,4 +1,14 @@
-# Longitudinal Shot Trend Analysis
+# Double Sight
+
+Let me tell you a story of pain and hatred. My father bless his sole bought the Foresight GC3 launch monitor, because he was tired of paying for virtual golf in a city that is full of snow and -25 C 65% of the year. Now this monitor is some pretty great engineering but it requires a license to operate. So he buys GSPro and everything is hunky dory, right? Well thats where I come in, with my experience hardware software interfaces I thought I could figure out a way to interface with this launch monitor and create a stats engine to analyze and display the data. A fun little tool. 
+
+Well here comes the pain, according to GSPro and there [documentation](https://gsprogolf.com/GSProConnectV1.html) there should be an open socket connection on `127.0.0.1:921`. Thats where foresight and there god awful software policy comes in. According to [this](https://gsprogolf.com/foresight-bushnell.html) foresight has there own special way of connecting there drivers to the launch monitor, great who cares. I DO. This stupid wrapper around the GS pro connect removes the socket functionality. Ok sure, but what I don't get is the why does removing this **LOCAL** socket do for you as a company? All youre doing is removing open source capabilities, which will decrease the amount of companies that will want to make integrations with your trash software. 
+
+Now there is a work around that makes you have to convert your license to a OPEN API version but they are slowly removing that capability from that license too. 
+
+What really pisses me off is that you take a software that has open source functionality and you intentionally remove it. That is unethical and greedy. Most people aren't trying to replace FSX2020, GSpro has already done that. 
+
+So that is why I had to do a scuffed approach to data extraction. Down side of how I went about accomplishing this is the logging file from unity doesnt contain club data, so that really limits what I can do. Thanks for nothing :)
 
 ## Objective
 
@@ -9,6 +19,9 @@ Continuously analyze shot data over time and generate statistically grounded tre
 1. **Club Trends:** carry, offline, ball speed, spin, launch (level + direction of change).
 2. **Consistency:** dispersion/variance changes over time.
 3. **Insight Feed:** short comments with magnitude + confidence, e.g. “7i carry up +4.2y vs last 30d (95% CI +1.1 to +7.3).”
+4. **Shot Quality:** Determining whether a shot was good or not and how to improve it base on ball spin and angle of attack. See [optimal launch and spin article](https://ping.com/en-us/blogs/proving-grounds/optimal-launch-and-spin) 
+
+<img src='Angle-of-attack-optimal-distance-graphic.png'/>
 
 ## Insight Types (MVP)
 

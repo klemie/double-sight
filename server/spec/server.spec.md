@@ -48,63 +48,13 @@ GET    /api/insights           List insights with filters
 GET    /api/insights/{id}      Get single insight
 ```
 
-## WebSocket Protocol
+## Socket Protocol
+
+Connecting to GSPro. Cant use socket, so must read from a freakin file :)
 
 ### Connection
 
-```
-WS /ws
-```
 
-### Server-to-Client Messages
-
-#### shot
-
-Sent when a new shot is recorded.
-
-```json
-{
-  "type": "shot",
-  "ts": 1730000000.0,
-  "shot": {
-    "id": "uuid",
-    "captured_at": "2025-12-23T19:01:02Z",
-    "club": "7i",
-    "metrics": {
-      "carry": 165.2,
-      "offline": -3.1,
-      "ball_speed": 118.4,
-      "spin": 6200
-    },
-    "session_id": "uuid",
-    "is_outlier": false
-  }
-}
-```
-
-#### insight
-
-Sent when a new insight is generated (typically follows a shot).
-
-```json
-{
-  "type": "insight",
-  "ts": 1730000001.2,
-  "insight": {
-    "id": "uuid",
-    "club": "7i",
-    "metric": "carry",
-    "kind": "step_change",
-    "window": "last_25",
-    "baseline": "prev_25",
-    "delta": 4.2,
-    "ci": [1.1, 7.3],
-    "p_value": 0.03,
-    "effect_size": 0.52,
-    "text": "7i carry is up +4.2y vs your previous 25 shots (95% CI +1.1 to +7.3)."
-  }
-}
-```
 
 ### Connection Management
 
